@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset=UTF-8 />
+    <title></title>
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <ul>
+                <li><a href="#home"><i class="fas home"></i>Home</a></li>
+                <li><a href="#buttons"><i class="fas buttons"></i>Buttons</a></li>
+                <li><a href="#images"><i class="fas images"></i>Images</a></li>
+                <li><a href="#neumorphism"><i class="fas neumorphism"></i>Neumorphism</a></li>
+            </ul>
+        </div>
+        
+        <div class="main_content" id="home">
+            <div class="header">Welcome to CSS Generator</div>
+            <div class="info">
+                <div>This CSS Generator web app has three sections to chose from.</div>
+                <div>If you want to see what CSS fun you can have with buttons, images or check out neumorphism, chose one in the sidebar.</div>
+                <div>Below each section, you will see the option to copy or save the CSS to view later.</div>
+            </div>
+
+            <div class="buttons" id="buttons">
+                
+                <button class=" btn btn-border-pop">Border Pop</button>
+
+                <button class=" btn btn-background-slide">Background Slide</button>
+                
+                <button class=" btn btn-background-cirlce">Background Circle</button>
+                
+                <button class=" btn btn-border-underline">Border Underline</button>
+
+                <button class="btn">This is a button</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+                <button class="btn">Test</button>
+
+                <div class="code-block-btn">
+                    <textarea class="code" id="code-container" rows="5" cols="65" readonly>
+        
+                    </textarea>
+                
+                </div>
+                
+            </div>
+
+            
+            
+            <br>
+            <div class="container images" id="images">
+                
+                <img src="https://images.unsplash.com/photo-1519873174361-37788c5a73c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60">
+               
+                <img src="https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60">
+                
+                <img src="https://images.unsplash.com/photo-1547816270-ad3a5cc5ed41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1910&q=80">
+                
+                <img src="https://images.unsplash.com/photo-1527380992061-b126c88cbb41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=802&q=80">
+                
+                <section class="controls">
+                    <label for="spacing">Spacing:</label>
+                    <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+                    
+                    <label for="blur">Blur:</label>
+                    <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    
+                    <label for="base">Base Color:</label>
+                    <input type="color" name="base" value="#fff">
+    
+                    <div class="code-block-img">
+                        <textarea class="code" id="code-container" rows="5" cols="65" readonly>
+            
+                        </textarea>
+                    
+                    </div>
+                </section>
+
+            </div>
+            
+
+            <div class="neumorph" id="neumorphism">
+                <h2>Neumorphism</h2>
+                <div class="soft-element soft-shadow" style="--size: 253px; --radius: 50px;"></div>
+
+            </div>
+        </div>
+    </div>
+    
+ </body>
