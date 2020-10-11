@@ -11,58 +11,55 @@
     
     <div class="wrapper">
         <div class="sidebar">
-            <h2>Sidebar</h2>
+            <h2>Fun! Fun! Fun!</h2>
             <ul>
                 <li><a href="#home"><i class="fas home"></i>Home</a></li>
                 <li><a href="#buttons"><i class="fas buttons"></i>Buttons</a></li>
                 <li><a href="#images"><i class="fas images"></i>Images</a></li>
-                <li><a href="#neumorphism"><i class="fas neumorphism"></i>Neumorphism</a></li>
+                <li><a href="#saved"><i class="fas saved"></i>Saved</a></li>
             </ul>
         </div>
         
         <div class="main_content" id="home">
-            <div class="header">Welcome to CSS Generator</div>
+            <div class="header">Welcome to CSS Generator
+                <button class=".dark-mode" id="dark-mode"></button>
+            </div>
             <div class="info">
-                <div>This CSS Generator web app has three sections to chose from.</div>
-                <div>If you want to see what CSS fun you can have with buttons, images or check out neumorphism, chose one in the sidebar.</div>
-                <div>Below each section, you will see the option to copy or save the CSS to view later.</div>
+                <div>This CSS Generator web app has two sections to chose from.</div>
+                <div>If you want to see what CSS fun you can have with buttons or images, chose one in the sidebar.</div>
+                <div>Below each section, you will see the option to save the code inside the text box to view later.</div>
+                <div>Coming soon: option to 'copy to clipboard', updated Text Box display, neumorphism!</div>
             </div>
 
             <div class="buttons" id="buttons">
-                
-                <button class=" btn btn-border-pop">Border Pop</button>
 
-                <button class=" btn btn-background-slide">Background Slide</button>
+                <button class="btn btn-background-slide" id="btn-slide">Background Slide</button>
                 
-                <button class=" btn btn-background-cirlce">Background Circle</button>
+                <button class=" btn btn-border-pop" id="btn-pop">Border Pop</button>
+
+                <button class="btn btn-glow-gradient-border" id="btn-glow"><span>Glow Gradient Border</span></button>
                 
-                <button class=" btn btn-border-underline">Border Underline</button>
+                <button class="btn btn-background-circle" id="btn-circle">Background Circle</button>
 
-                <button class="btn">This is a button</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
-                <button class="btn">Test</button>
+                <button class="btn btn-shine" id="btn-shine">Shiny</button>
 
-                <div class="code-block-btn">
-                    <textarea class="code" id="code-container" rows="5" cols="65" readonly>
+                <button class="btn btn-border-underline" id="btn-line">Border Underline</button>
+                
+                
+
+                <div class="code block-btn">
+                    <textarea class="code" id="code-container-btn" rows="5" cols="65" readonly>
         
                     </textarea>
-                
                 </div>
+
+                <button class="save-button" id="save-btn" style="background-color:aqua">Save</button>
                 
             </div>
 
             
             
-            <br>
+            
             <div class="container images" id="images">
                 
                 <img src="https://images.unsplash.com/photo-1519873174361-37788c5a73c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60">
@@ -75,31 +72,45 @@
                 
                 <section class="controls">
                     <label for="spacing">Spacing:</label>
-                    <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+                    <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px" alt="Padding">
                     
                     <label for="blur">Blur:</label>
-                    <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+                    <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px" alt="Filter">
     
                     <label for="base">Base Color:</label>
-                    <input type="color" name="base" value="#fff">
+                    <input type="color" name="base" value="#fff" alt="Background-Color">
     
-                    <div class="code-block-img">
-                        <textarea class="code" id="code-container" rows="5" cols="65" readonly>
+                    <div class="code block-img">
+                        <textarea class="code" id="code-container-img" rows="5" cols="65" readonly>
             
                         </textarea>
-                    
                     </div>
+
+                    <button class="save-button" id="save-btn-img">Save</button>
                 </section>
 
             </div>
             
 
-            <div class="neumorph" id="neumorphism">
-                <h2>Neumorphism</h2>
-                <div class="soft-element soft-shadow" style="--size: 253px; --radius: 50px;"></div>
-
+            <div class="saved" id="saved">Saved CSS
+                <div class="code block-saved">
+                    <textarea class="code" id="code-container-sav" rows="5" cols="65" readonly>
+        
+                    </textarea>
+                
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.onkeypress = function(e) {
+            e = e || window.event;
+
+            if(e.keyCode === 13) {
+                document.documentElement.classList.toggle('dark-mode');
+            }
+        }
+    </script>
     
  </body>
