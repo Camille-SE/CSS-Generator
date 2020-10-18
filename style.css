@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
+.dark-mode {
+    filter: invert(1) hue-rotate(180deg)
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +31,7 @@ body {
     position: fixed;
     height: 100%;
     width: 200px;
-    background: lightgray;
+    background: aqua;
     padding: 30px 0;
 }
 
@@ -45,8 +49,9 @@ body {
 }
 
 .wrapper .sidebar ul li a {
-    color: #e0e4e8;
-    text-shadow: 0 0 1px black;
+    color: black;
+    text-shadow: 0 0 1px white;
+    font-size: larger;
     display: block;
 }
 
@@ -56,10 +61,6 @@ body {
 
 .wrapper .sidebar ul li:hover {
     background: #f3f5f9;
-}
-
-.wrapper .sidebar ul li:hover a {
-    color: #fff;
 }
 
 .wrapper .main_content {
@@ -101,7 +102,7 @@ button {
 
 
 
-.buttons, .images, .neumorph {
+.buttons, .images {
     display: flex;
     flex-wrap: wrap;
     padding: 0px 50px 50px 50px;
@@ -120,8 +121,11 @@ button {
 
     --background-color: #e3e3e3;
     --border-size: 2px;
+    --accent-color: #0AF;
 }
 
+
+/* button pop */
 .btn.btn-border-pop::before {
     content: '';
     position: absolute;
@@ -141,22 +145,221 @@ button {
     bottom: calc(var(--border-size) * -2);
 }
 
-.code-block {
+/* background slide button */
+.btn.btn-background-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.btn.btn.btn-background-slide:hover::before,
+.btn.btn.btn-background-slide:focus::before {
+    transform: scaleX(1);
+}
+
+.btn.btn-background-slide {
+    transition: color 300ms ease-in-out;
+    z-index: 1;
+}
+
+.btn.btn-background-slide:hover,
+.btn.btn-background-slide:focus {
+    color: white;
+}
+
+
+/* circle button */
+.btn.btn-background-circle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    transition: transform 500ms ease-in-out;
+
+    transform: scale(1.5);
+}
+
+.btn.btn-background-circle:hover::before,
+.btn.btn-background-circle:focus::before {
+    transform: scale(0);
+}
+
+.btn.btn-background-circle {
+    z-index: 1;
+    overflow: hidden;
+    background-color: var(--accent-color);
+}
+
+.btn.btn-background-circle:hover,
+.btn.btn-background-circle:focus {
+    color: white;
+}
+
+
+/* underline button */
+.btn.btn-border-underline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--border-size);
+    background-color: var(--accent-color);
+    transition: transform 300ms ease-in-out;
+
+    transform: scaleX(0);
+}
+
+.btn.btn-border-underline:hover::before,
+.btn.btn-border-underline:focus::before {
+    transform: scaleX(1);
+}
+
+
+/* shiny button */
+.btn.btn-shine {
+    position: relative;
+    padding: 10px 15px;
+    margin: 15px;
+    background: var(--background-color);
+    /* color: #fff; */
+    text-decoration: none;
+    letter-spacing: 1px;
+    border: 1px solid var(--background-color);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.btn.btn-shine:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.btn.btn-shine:nth-child(2):hover {
+    background: white;
+}
+
+.btn.btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transition: 0.5s;
+}
+
+.btn.btn-shine:hover::before {
+    left: 100%;
+}
+
+
+/* glow gradient button */
+.btn.btn-glow-gradient-border {
+    text-align: center;
+    position: relative;
+    width: 160px;
+    text-decoration: none;
+
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+}
+
+.btn.btn-glow-gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00,#fb0094, #00f, #0f0, #ff0, #f00);
+    background-size: 400%;
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate 20s linear infinite;
+}
+
+.btn.btn-glow-gradient-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00,#fb0094, #00f, #0f0, #ff0, #f00);
+    background-size: 400%;
+    opacity: 0;
+    filter: blur(20px);
+    transition: 0.5s;
+    animation: animate 20s linear infinite;
+}
+
+.btn.btn-glow-gradient-border:hover::before,
+.btn.btn-glow-gradient-border:hover::after {
+    opacity: 1;
+}
+
+@keyframes animate {
+    0% {
+        backgroung-position: 0 0;
+    }
+    50% {
+        backgroung-position: 300% 0;
+    }
+    100% {
+        backgroung-position: 0 0;
+    }
+}
+
+.btn.btn-glow-gradient-border span {
+    position: absolute;
+    display: block;
+    text-align: center;
+    transition: 0.5s;
+    z-index: 1;;
+}
+
+.btn.btn-glow-gradient-border:hover span {
+    color: black;
+}
+
+.btn.btn-glow-gradient-border span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+}
+
+
+
+.code {
     display: flex;
     justify-content: center;
 }
 
-#code-container {
-    align-content: center;
-    color: blue;
-}
 
 /* images CSS */
 
 :root {
     --base: #ffffff;
     --spacing: 10px;
-    --blur: 10px;
+    --blur: 2px;
 }
 
 img {
@@ -171,7 +374,6 @@ img {
   
 
 .images {
-    /* display: block; */
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -183,22 +385,17 @@ img {
     overflow: hidden;
 }
 
-
-
-/* neumorphism CSS */
-
-.soft-shadow {
-    background: linear-gradient(var(--angle), var(--firstGradientColor), var(--secondGradientColor));
-    box-sizing: border-box;
+.saved {
+    display: flex;
+    justify-content: center;
 }
 
-.soft-element {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: var(--size);
-    height: var(--size);
-    border: var(--radius);
+.block-saved {
+    position: relative;
+    bottom: 50px;
+}
+
+.save-button:hover {
+    cursor: pointer;
+    background-color: #0f0;
 }
